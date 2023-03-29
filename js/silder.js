@@ -34,7 +34,7 @@ createApp({
         }, 
         methods: {
             startAutoplay() {
-              this.intervalId = setInterval(this.goNext, 1000);
+              this.intervalId = setInterval(this.goNext, 3000);
             },
             stopAutoplay() {
               clearInterval(this.intervalId);
