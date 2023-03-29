@@ -12,17 +12,22 @@
 <body>
     <div id="app">
         <div class="container w-100 vh-100 d-flex justify content-center align-items-center">
-        <div class="slider" v-bind:class="{ 'paused': isPaused }" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
-          <div class="slides" v-for="(content, index) in images" :key="index" :class="{ 'active': index === currentIndex }">
+        <div class="slider" v-bind:class="{ 'paused': isPaused }" 
+        @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
+          <div class="slides" v-for="(content, index) in images"
+           :key="index" :class="{ 'active': index === currentIndex }">
             <img :src="content.image" alt="">
             <div class="opaci">
-              <h3>{{ content.title }}</h3>
+              <h3 class="p-3">{{ content.title }}</h3>
+              <p class="ps-3">{{ content.text }}</p>
             </div>
           </div>
           
         </div>
+
         <div class="thumbnails-container">
-          <div class="thumb" v-for="(content, index) in images" :key="index" :class="{ 'active': index === currentIndex }">
+          <div class="thumb" v-for="(content, index) in images"
+           :key="index" :class="{ 'active': index === currentIndex }">
             <img :src="content.image" alt="">
 
             <div class="controls">
