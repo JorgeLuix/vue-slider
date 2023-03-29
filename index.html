@@ -10,9 +10,28 @@
     <title>Vue Slider</title>
 </head>
 <body>
+    <div id="app">
+        <div class="slider" v-bind:class="{ 'paused': isPaused }" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
+          <div class="slides" v-for="(content, index) in images" :key="index" :class="{ 'active': index === currentIndex }">
+            <img :src="content.image" alt="">
+            <div class="opaci">
+              <h3>{{ content.title }}</h3>
+            </div>
+          </div>
+          
+        </div>
+        <div class="thumbnails-container">
+          <div class="thumb" v-for="(content, index) in images" :key="index" :class="{ 'active': index === currentIndex }">
+            <img :src="content.image" alt="">
+
+            <div class="controls">
+                <button class="prev" @click="goPrev"><i class="fa fa-chevron-left"></i></button>
+                <button class="next" @click="goNext"><i class="fa fa-chevron-right"></i></button>
+              </div>
+          </div>
+        </div>
+      </div>
     
-
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/silder.js"></script>
 </body>
